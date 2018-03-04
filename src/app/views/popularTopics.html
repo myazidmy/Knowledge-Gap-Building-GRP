@@ -1,0 +1,11 @@
+<div id="popular-topics">
+  <div class="container">
+    <h1 class="topic-title">Popular Topics</h1>
+    <!--<h5>TopicsName : {{popCtrl.topicsName[1].hits}}</h5>-->
+    <!--<h5>Topics with Description: {{popCtrl.topicsWithDescription}}</h5>-->
+    <ul class="nav nav-pills nav-stacked" ng-repeat="n in popCtrl.topicsWithDescription track by $index">
+      <a class="topic-name" href="#/description={{n.title}}"><h3>{{n.title}}</h3></a>
+      <p>{{n.content | limitTo : 500}}...<a href="#/description={{n.title}}">Learn More</a></p>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,68 @@
+<script>
+function enterKeyPress(e)
+{
+    // look for window.event in case event isn't passed in
+    e = e || window.event;
+    if (e.keyCode == 13)
+    {
+        document.getElementById('searchButton').click();
+        return false;
+    }
+    return true;
+}
+</script>
+<div id="mainPage">
+  <!--
+      <div class="topic-input">
+          <input type="text" class="field" ng-model="topicInput">
+          <div class="similar-topic-results" ng-show="topicInput.length>0" ng-repeat="n in main.similarTopics">{{n.title}}</div>
+      </div>
+  -->
+
+
+  <!--    <h6>{{main.testArray}}</h6>-->
+   <div id="main-page-search-bar">
+      <div class="container-fluid">
+        <h2><img src="http://i.imgur.com/6shf8U4.png?1" class="img-responsive img-center"></h2>
+        <div class="form-group">
+          <label for="states">Enter your topic here</label>
+          <input name="states" id="states" type="text" placeholder="Enter your topic here" ng-model="selected" typeahead="state for state in states | filter:$viewValue | limitTo:8" class="form-control">
+        </div>
+        <button class="btn btn-primary" type="submit">Search</button>
+      </div>
+   </div>
+    <div id="main-page-motto">
+      <!--<div class="row navbar-fixed-bottom">-->
+      <div class="row">
+        <div class="col-sm-4 column-1">
+          <span class="glyphicon glyphicon-search"></span>
+          <h3>Search a topic</h3>
+        </div>
+        <div class="col-sm-4 column-2">
+          <span class="glyphicon glyphicon-pencil"></span>
+          <h3>Customize It</h3>
+
+        </div>
+        <div class="col-sm-4 column-3">
+          <span class="glyphicon glyphicon-tasks"></span>
+          <h3>Start Learning</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<div class="col-lg-6">
+    <div class="input-group">
+      <input type="text" class="form-control" ng-model="topicInput" placeholder="Enter a topic..." onkeypress="return enterKeyPress(event);"/>
+      <span class="input-group-btn">
+        <a href="#/relatedtopics={{topicInput}}"><button class="btn btn-default" id="searchButton" type="button">Go!</button></a>
+
+      </span>
+    </div>
+        <div class="similar-topic-results" ng-show="topicInput.length>0" ng-repeat="n in main.similarTopics">
+            <a href="#/description={{n.title}}">{{n.title}}</a>
+        </div>
+<!--&lt;!&ndash;        <h6>{{main.testArray}}</h6>&ndash;&gt;-->
+    </div>

@@ -1,0 +1,46 @@
+<script>
+function enterKeyPress(e)
+{
+    // look for window.event in case event isn't passed in
+    e = e || window.event;
+    if (e.keyCode == 13)
+    {
+        document.getElementById('searchButton').click();
+        return false;
+    }
+    return true;
+}
+</script>
+
+<div class="container">
+   
+ <h1 class="topic-title">Related Topics</h1>
+    <br>
+      <div class="col-lg-6">
+    <div class="input-group">
+      <input type="text" class="form-control" ng-model="topicInput" placeholder="Enter a topic..." onkeypress="return enterKeyPress(event);"/>
+      <span class="input-group-btn">
+        <a href="#/relatedtopics={{topicInput}}"><button class="btn btn-default" id="searchButton" type="button">Go!</button></a>
+      </span>
+    </div>
+        <div class="similar-topic-results" ng-show="topicInput.length>0" ng-repeat="n in relCtrl.similarTopics">
+            <a href="#/description={{n.title}}">{{n.title}}</a>
+        </div>
+<!--&lt;!&ndash;        <h6>{{main.testArray}}</h6>&ndash;&gt;-->
+    </div>
+</div>
+
+<div id="related-topics">
+  <div class="container">
+   
+      <h2><small>{{relCtrl.relatedTopicsWithDescription.length}} results for "{{relCtrl.searchInput}}"</small></h2>
+      <br>
+     
+    <!--<h5>TopicsName : {{popCtrl.topicsName[1].hits}}</h5>-->
+    <!--<h5>Topics with Description: {{popCtrl.topicsWithDescription}}</h5>-->
+    <ul class="nav nav-pills nav-stacked" ng-repeat="n in relCtrl.relatedTopicsWithDescription track by $index">
+      <a class="topic-name" href="#/description={{n.title}}"><h3>{{n.title}}</h3></a>
+      <p>{{n.content | limitTo : 500}}...<a href="#/description={{n.title}}">Learn More</a></p>
+    </ul>
+  </div>
+</div>

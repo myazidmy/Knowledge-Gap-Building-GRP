@@ -1,0 +1,41 @@
+<script>
+        $(document).ready(function() {
+            $('[data-toggle=offcanvas]').click(function() {
+            $('.row-offcanvas').toggleClass('active');
+            });
+        });
+
+          $(document).ready( function() {
+            $('#sidebar').height($('html').height());
+          });
+</script>
+<body>
+<div id="description">
+    <div class="row-offcanvas row-offcanvas-left">
+      <div id="sidebar" class="sidebar-offcanvas">
+          <div class="col-md-12">
+            <ul class="nav nav-pills nav-stacked" ng-repeat="n in descCtrl.topicList track by $index">
+    <!--
+              <li class="active text-center"><a href="#">Topic One</a></li>
+              <li><a href="#" class="text-center">Topic Two</a></li>
+              <li><a href="#" class="text-center">Topic Three</a></li>
+    -->
+               <li><a href="#/description={{n}}" class="text-center">{{n}}</a></li>
+            </ul>
+          </div>
+      </div>
+      <div id="main">
+          <div class="col-md-12">
+              <p class="visible-xs">
+                <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
+              </p>
+              <h2>{{descCtrl.descriptionTopic.title}}</h2>
+              <p>{{descCtrl.descriptionTopic.content}}</p>
+          </div>
+        <h6>topics:{{descCtrl.topicsWithDescription}}</h6>
+      </div>
+    </div>
+
+
+</div>
+</body>

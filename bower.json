@@ -1,0 +1,33 @@
+{
+  "name": "kgbStatics",
+  "version": "0.0.0",
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "angular-route": "~1.4.2",
+    "angular-bootstrap": "~0.13.4",
+    "angular": "~1.4.2",
+    "bootstrap": "^3.3.6",
+    "font-awesome": "fontawesome#^4.5.0",
+    "d3": "^3.5.16",
+    "d3-context-menu": "*",
+    "underscore": "^1.8.3"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js",
+        "dist/fonts/glyphicons-halflings-regular.eot",
+        "dist/fonts/glyphicons-halflings-regular.svg",
+        "dist/fonts/glyphicons-halflings-regular.ttf",
+        "dist/fonts/glyphicons-halflings-regular.woff",
+        "dist/fonts/glyphicons-halflings-regular.woff2"
+      ]
+    },
+    "font-awesome": {
+      "main": [
+        "css/font-awesome.css"
+      ]
+    }
+  }
+}
